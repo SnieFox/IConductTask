@@ -108,6 +108,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Employee.cs" />
+    <Compile Include="DTO\EmployeeDto.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\EmployeeRepository.cs" />
+    <Compile Include="DomainServices\EmployeeDomainService.cs" />
     <Compile Include="EmployeeService.svc.cs">
       <DependentUpon>EmployeeService.svc</DependentUpon>
     </Compile>

@@ -1,4 +1,6 @@
-﻿using System.ServiceModel;
+﻿using EmployeeService.DTO;
+using System.Collections.Generic;
+using System.ServiceModel;
 using System.ServiceModel.Web;
 
 
@@ -15,9 +17,14 @@ namespace EmployeeService
         bool GetEmployeeById(int id);
 
         [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "EnableEmployee?id={id}", 
-            BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        void EnableEmployee(int id, int enable);
+        [WebInvoke(Method = "GET", UriTemplate = "GetEmployees",
+        ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+        List<EmployeeDto> GetEmployees();
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "EnableEmployee?id={id}&enable={enable}",
+        ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+        void EnableEmployee(int id, bool enable);
     }
 
 	
